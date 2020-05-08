@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'demos/drawerDemo.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -30,11 +32,6 @@ class Home extends StatelessWidget {
         child: Scaffold(
             backgroundColor: Colors.grey[100],
             appBar: AppBar(
-              leading: IconButton(
-                  icon: Icon(Icons.menu),
-                  tooltip: 'Navigation',
-                  onPressed: () => debugPrint('Menu button is pressed')
-              ),
               title: Text('Title'),
               actions: <Widget>[
                 IconButton(
@@ -61,7 +58,8 @@ class Home extends StatelessWidget {
               Icon(Icons.directions_boat, size: 128.0, color: Colors.black12),
               Icon(Icons.directions_bus, size: 128.0, color: Colors.black12)
             ]
-        )
+        ),
+          drawer: DrawerDemo(),
     )
     );
   }
