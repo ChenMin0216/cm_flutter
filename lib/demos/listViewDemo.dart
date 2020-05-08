@@ -27,25 +27,9 @@ class ListViewDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.grey[100],
-        appBar: AppBar(
-          leading: IconButton(
-              icon: Icon(Icons.menu),
-              tooltip: 'Navigation',
-              onPressed: () => debugPrint('Menu button is pressed')
-          ),
-          title: Text('Hello'),
-          actions: <Widget>[
-            IconButton(
-                icon: Icon(Icons.search),
-                tooltip: 'Search',
-                onPressed: () => debugPrint('Search button is pressed')
-            )
-          ],
-          elevation: 0.0,
-        ),
-        body: ListView.builder(itemCount: posts.length, itemBuilder: _listItemBuilder)
+    return ListView.builder(
+      itemBuilder: _listItemBuilder,
+      itemCount: posts.length,
     );
   }
 }
