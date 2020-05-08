@@ -22,6 +22,7 @@ class _BottomNavgationBarDemoState extends State<BottomNavigationBarDemo> {
     return BottomNavigationBar(
       currentIndex: _currentIndex,
       onTap: _onTapBottomItemIndex,
+      // Mark: 若底部的Tab栏超过3个以上会变成白色，BottomNavigationBarType.fixed 可修复
       type: BottomNavigationBarType.fixed,
       fixedColor: Colors.black,
       items:[
