@@ -60,9 +60,9 @@ class Home extends StatelessWidget {
           body: TabBarView(
             children: <Widget>[
               ListViewDemo(),
+              ViewDemo(),
               Icon(Icons.directions_boat, size: 128.0, color: Colors.black12),
               Icon(Icons.directions_bus, size: 128.0, color: Colors.black12),
-              ViewDemo(),
             ]
         ),
           drawer: DrawerDemo(),

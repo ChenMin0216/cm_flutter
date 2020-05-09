@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cm_flutter/models/post.dart';
+import 'post_detail.dart';
 
 class ListViewDemo extends StatelessWidget {
 
@@ -7,19 +8,40 @@ class ListViewDemo extends StatelessWidget {
     return Container(
       color: Colors.white,
       margin: EdgeInsets.all(10.0),
-      child: Column(
+      child: Stack(
         children: <Widget>[
-          Image.network(posts[index].imageUrl),
-          SizedBox(height: 18.0),
-          Text(
-            posts[index].title,
-            style: Theme.of(context).textTheme.headline6,
+          Column(
+            children: <Widget>[
+              AspectRatio(
+                aspectRatio: 16/9,
+                child: Image.network(posts[index].imageUrl, fit: BoxFit.cover),
+              ),
+              SizedBox(height: 16.0),
+              Text(
+                posts[index].title,
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              Text(
+                posts[index].author,
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              SizedBox(height: 18.0)
+            ],
           ),
-          Text(
-            posts[index].author,
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          SizedBox(height: 18.0)
+          Positioned.fill(
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                splashColor: Colors.white.withOpacity(0.3),
+                highlightColor: Colors.white.withOpacity(0.1),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PostDetail(post: posts[index]))
+                  );
+                },
+              ),
+            ),
+          )
         ],
       ),
     );
