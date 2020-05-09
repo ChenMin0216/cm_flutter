@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'demos/drawerDemo.dart';
 import 'demos/bottomNavgitionBarDemo.dart';
 import 'demos/listViewDemo.dart';
+import 'demos/viewDemo.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,7 +32,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
             backgroundColor: Colors.grey[100],
             appBar: AppBar(
@@ -53,13 +54,15 @@ class Home extends StatelessWidget {
                     Tab(icon: Icon(Icons.directions_bike)),
                     Tab(icon: Icon(Icons.directions_boat)),
                     Tab(icon: Icon(Icons.directions_bus)),
+                    Tab(icon: Icon(Icons.directions_car)),
               ]),
             ),
           body: TabBarView(
             children: <Widget>[
               ListViewDemo(),
               Icon(Icons.directions_boat, size: 128.0, color: Colors.black12),
-              Icon(Icons.directions_bus, size: 128.0, color: Colors.black12)
+              Icon(Icons.directions_bus, size: 128.0, color: Colors.black12),
+              ViewDemo(),
             ]
         ),
           drawer: DrawerDemo(),
